@@ -11,4 +11,25 @@
 
 #include <stdio.h>
 
+#include<iostream>
+#include<string.h>
+
+using namespace std;
+
+class Bien
+{
+protected:
+    int id_bien;
+    float prix;
+    string adresse_bien;
+    float nb_m2;
+    string type_de_bien;
+
+public:
+
+        Bien();
+        ~Bien();
+};
+
 #endif /* Bien_hpp */
+
