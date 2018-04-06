@@ -7,3 +7,19 @@
 //
 
 #include "Vendeur.hpp"
+
+Vendeur::Vendeur(int id, string nom, string adresse): Client(id,nom,adresse){
+    
+}
+
+Vendeur::~Vendeur(){
+    
+}
+
+void Vendeur::ajout_bien(Bien nouveauBien){
+    
+}
+
+void Vendeur::suppression_bien(Bien nouveauBien){
+    
+}

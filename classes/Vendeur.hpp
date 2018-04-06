@@ -10,5 +10,20 @@
 #define Vendeur_hpp
 
 #include <stdio.h>
+#include <iostream>
+#include <vector>
+#include "Client.hpp"
+#include "Bien.hpp"
+using namespace std;
+
+class Vendeur : public Client{
+private:
+    //vector<Bien *> ListeBiens;
+protected:
+    Vendeur(int, string, string);
+    ~Vendeur();
+    void ajout_bien(Bien);
+    void suppression_bien(Bien);
+};
 
 #endif /* Vendeur_hpp */

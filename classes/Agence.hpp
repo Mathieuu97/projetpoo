@@ -10,5 +10,22 @@
 #define Agence_hpp
 
 #include <stdio.h>
+#include <vector>
+#include <map>
+#include "Vendeur.hpp"
+#include "Acheteur.hpp"
+using namespace std;
+
+class Agence {
+private:
+    //vector<Vendeur *> ListeVendeur;
+    //vector<Vendeur *> ListeVendeur;
+protected:
+    Agence();
+    ~Agence();
+    
+};
+
+
 
 #endif /* Agence_hpp */

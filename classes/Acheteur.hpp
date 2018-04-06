@@ -10,5 +10,18 @@
 #define Acheteur_hpp
 
 #include <stdio.h>
+#include <iostream>
+#include <vector>
+#include "Client.hpp"
+#include "Bien.hpp"
+using namespace std;
+
+class Acheteur : public Client{
+private:
+    //vector<Visite *> ListeVisites;
+protected:
+    Acheteur(int, string, string);
+    ~Acheteur();
+};
 
 #endif /* Acheteur_hpp */

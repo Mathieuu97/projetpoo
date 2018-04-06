@@ -7,3 +7,13 @@
 //
 
 #include "Client.hpp"
+
+Client::Client(int _id, string _nom, string _adresse){
+    id=_id;
+    nom=_nom;
+    adresse=_adresse;
+}
+
+Client::~Client(){
+    
+}
