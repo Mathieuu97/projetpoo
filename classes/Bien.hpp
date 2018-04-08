@@ -18,16 +18,17 @@ using namespace std;
 
 class Bien
 {
-protected:
+public:
     int id_bien;
     float prix;
     string adresse_bien;
     float nb_m2;
     string type_de_bien;
-
+    
 public:
 
         Bien();
+        Bien(int _id, float _prix, string _adr, float _nb_m2, string _type);
         ~Bien();
 };
 

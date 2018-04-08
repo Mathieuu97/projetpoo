@@ -16,10 +16,13 @@ Vendeur::~Vendeur(){
     
 }
 
-void Vendeur::ajout_bien(Bien nouveauBien){
-    
+void Vendeur::ajout_bien(Bien* nouveauBien){
+    ListeBiens.push_back(nouveauBien);
 }
 
-void Vendeur::suppression_bien(Bien nouveauBien){
-    
+void Vendeur::suppression_bien(Bien* aSupprimer){
+    for(int i=0; i<ListeBiens.size();i++){
+        if(ListeBiens[i]->id_bien==aSupprimer->id_bien)
+                ListeBiens.erase(ListeBiens.begin()+i);
+    }
 }

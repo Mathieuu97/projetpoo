@@ -18,12 +18,12 @@ using namespace std;
 
 class Vendeur : public Client{
 private:
-    //vector<Bien *> ListeBiens;
+    vector<Bien *> ListeBiens;
 protected:
     Vendeur(int, string, string);
     ~Vendeur();
-    void ajout_bien(Bien);
-    void suppression_bien(Bien);
+    void ajout_bien(Bien*);
+    void suppression_bien(Bien*);
 };
 
 #endif /* Vendeur_hpp */
