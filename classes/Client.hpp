@@ -15,10 +15,12 @@ using namespace std;
 
 class Client {
 protected:
-    int id;
+    static int nextIdCLient;
+    int idClient;
     string nom;
     string adresse;
 protected:
+    Client();
     Client(int, string, string);
     ~Client();
     

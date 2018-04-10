@@ -8,8 +8,14 @@
 
 #include "Client.hpp"
 
+int Client::nextIdCLient = 0;
+
+Client::Client(){
+    idClient=nextIdCLient++;
+}
+
 Client::Client(int _id, string _nom, string _adresse){
-    id=_id;
+    idClient=nextIdCLient++;
     nom=_nom;
     adresse=_adresse;
 }
