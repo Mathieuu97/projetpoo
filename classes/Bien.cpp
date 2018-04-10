@@ -25,12 +25,11 @@ Bien::~Bien()
     //dtor
 }
 
-Bien::Bien(float _prix, string _adr, float _nb_m2, string _type)
+Bien::Bien(float _prix, string _adr, float _nb_m2)
 {
     id_bien = ++next_id_bien;
     prix = _prix;
     adresse_bien = _adr;
     nb_m2 = _nb_m2;
-    type_de_bien = _type;
 }
 

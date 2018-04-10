@@ -25,7 +25,7 @@ protected:
     int nb_total_appart;
 public:
     Appartement();
-    Appartement(int nb_pieces, int nb_etages, bool garage, bool cave, bool balcon, int nb_total_appart);
+    Appartement(float _prix, string _adr, float _nb_m2, int nb_pieces, int nb_etages, bool garage, bool cave, bool balcon, int nb_total_appart);
     ~Appartement();
 };
 

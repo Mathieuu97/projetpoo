@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
             endingLineNumber = "28"
-            landmarkName = "Bien::Bien(float _prix, string _adr, float _nb_m2, string _type)"
+            landmarkName = "Bien::Bien(float _prix, string _adr, float _nb_m2"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -9,6 +9,7 @@
 #include <iostream>
 #include "Bien.hpp"
 #include "Client.hpp"
+#include "Appartement.hpp"
 using namespace std;
 
 
@@ -22,7 +23,7 @@ int main(int argc, const char * argv[]) {
     
     cout << "id= " << B.id_bien << endl;
     
-    Bien C;
+    Appartement C;
     
     cout << "id= " << C.id_bien << endl;
     

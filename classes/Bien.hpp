@@ -23,12 +23,11 @@ protected:
     float prix;
     string adresse_bien;
     float nb_m2;
-    string type_de_bien;
     
 public:
     int id_bien;
         Bien();
-        Bien(float _prix, string _adr, float _nb_m2, string _type);
+        Bien(float _prix, string _adr, float _nb_m2);
         ~Bien();
 };
 
