@@ -7,3 +7,15 @@
 //
 
 #include "Visite.hpp"
+
+Visite::Visite()
+{
+
+}
+
+Visite::Visite(int _id_visite, bool _proposition_achat, float _prix)
+{
+	id_visite = _id_visite;
+	proposition_achat = _proposition_achat;
+	prix = _prix;
+}
