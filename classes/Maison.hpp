@@ -10,5 +10,23 @@
 #define Maison_hpp
 
 #include <stdio.h>
+#include <iostream>
+#include "bien.hpp"
+
+using namespace std;
+
+class Maison : public Bien {
+protected:
+    int nb_pieces;
+    int nb_etages;
+    bool garage;
+    bool jardin;
+    bool piscine;
+
+public:
+    Maison();
+    Maison(float _prix, string _adr, float _nb_m2, int _nb_pieces, int _nb_etages, bool _garage, bool _jardin, bool _piscine);
+    ~Maison();
+};
 
 #endif /* Maison_hpp */

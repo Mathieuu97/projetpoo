@@ -18,14 +18,14 @@ using namespace std;
 class Appartement : public Bien {
 protected:
     int nb_pieces;
-    int nb_etage;
+    int nb_etages;
     bool garage;
     bool cave;
     bool balcon;
     int nb_total_appart;
 public:
     Appartement();
-    Appartement(float _prix, string _adr, float _nb_m2, int nb_pieces, int nb_etages, bool garage, bool cave, bool balcon, int nb_total_appart);
+    Appartement(float _prix, string _adr, float _nb_m2, int _nb_pieces, int _nb_etages, bool _garage, bool _cave, bool _balcon, int _nb_total_appart);
     ~Appartement();
 };
 

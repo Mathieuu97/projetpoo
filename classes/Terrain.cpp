@@ -1,9 +1,17 @@
 //
 //  Terrain.cpp
-//  classes
-//
-//  Created by Edwin Lebreton on 06/04/2018.
-//  Copyright © 2018 Edwin Lebreton. All rights reserved.
-//
+
 
 #include "Terrain.hpp"
+
+Terrain::Terrain(){
+
+}
+
+Terrain::Terrain(float _prix, string _adr, float _nb_m2, bool _constructible) : Bien(prix,adresse_bien,nb_m2){
+    constructible = _constructible;
+}
+
+Terrain::~Terrain(){
+
+}
