@@ -10,10 +10,25 @@
 #include <iostream>
 #include "Acheteur.hpp"
 
+Acheteur::Acheteur(){
+    
+}
+
 Acheteur::Acheteur(int id, string nom, string adresse): Client(id,nom,adresse){
     
 }
 
 Acheteur::~Acheteur(){
     
+}
+
+void Acheteur::ajout_visite(Visite* nouvelleVisite){
+    ListeVisites.push_back(nouvelleVisite);
+}
+
+void Acheteur::suppression_visite(Visite* aSupprimer){
+    for(int i=0; i<ListeVisites.size();i++){
+        if(ListeVisites[i]->id_visite==aSupprimer->id_visite)
+            ListeVisites.erase(ListeVisites.begin()+i);
+    }
 }

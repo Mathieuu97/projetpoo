@@ -14,6 +14,7 @@
 
 #include<iostream>
 #include<string.h>
+#include "Vendeur.hpp"
 
 using namespace std;
 
@@ -24,6 +25,7 @@ protected:
     float prix;
     string adresse_bien;
     float nb_m2;
+    Vendeur client;
     
 public:
     int id_bien;

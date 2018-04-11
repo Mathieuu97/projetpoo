@@ -13,15 +13,18 @@
 #include <iostream>
 #include <vector>
 #include "Client.hpp"
-#include "Bien.hpp"
+#include "Visite.hpp"
 using namespace std;
 
 class Acheteur : public Client{
 private:
-    //vector<Visite *> ListeVisites;
+    vector<Visite *> ListeVisites;
 protected:
+    Acheteur();
     Acheteur(int, string, string);
     ~Acheteur();
+    void ajout_visite(Visite*);
+    void suppression_visite(Visite*);
 };
 
 #endif /* Acheteur_hpp */

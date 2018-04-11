@@ -16,10 +16,10 @@ using namespace std;
 
 class Visite {
 protected:
-    int id_visite;
     bool proposition_achat;
     float prix;
 public:
+    int id_visite;
     Visite();
     Visite(int _id_visite, bool _proposition_achat, float _prix);
     ~Visite();

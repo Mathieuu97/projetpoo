@@ -18,12 +18,14 @@ using namespace std;
 
 class Agence {
 private:
-    //vector<Vendeur *> ListeVendeur;
-    //vector<Vendeur *> ListeVendeur;
+    vector<Vendeur *> ListeVendeur;
+    vector<Acheteur *> ListeAcheteur;
 protected:
     Agence();
     ~Agence();
-    
+    void ajouterClient(Client*);
+    void ajouterBien(Bien*);
+    void nouvellePropositionAchat(float);
 };
 
 

@@ -18,3 +18,14 @@ Agence::Agence(){
 Agence::~Agence(){
     
 }
+
+void Agence::ajouterClient(Client* nouveauClient){
+    
+}
+void ajouterBien(Bien * nouveauBien){
+    
+}
+
+void nouvellePropositionAchat(float nouvelleProposition){
+    
+}
