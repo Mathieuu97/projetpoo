@@ -29,6 +29,9 @@ public:
     void ajouterBien();
     void nouvellePropositionAchat();
     void quitterAgence();
+    bool acheteurExiste(int);
+    
+    Acheteur getAcheteur(int);
 };
 
 

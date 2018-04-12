@@ -23,3 +23,7 @@ Client::Client(string _nom, string _adresse){
 Client::~Client(){
     
 }
+
+int Client::getId(){
+    return idClient;
+}

@@ -11,11 +11,13 @@
 #include "Acheteur.hpp"
 
 Acheteur::Acheteur(){
-    
+    propositionAchat=false;
+    montantProposition=0;
 }
 
 Acheteur::Acheteur(string nom, string adresse): Client(nom,adresse){
-    
+    propositionAchat=false;
+    montantProposition=0;
 }
 
 Acheteur::~Acheteur(){
@@ -28,7 +30,29 @@ void Acheteur::ajout_visite(Visite* nouvelleVisite){
 
 void Acheteur::suppression_visite(Visite* aSupprimer){
     for(int i=0; i<ListeVisites.size();i++){
-        if(ListeVisites[i]->id_visite==aSupprimer->id_visite)
+        if(ListeVisites[i]->getId()==aSupprimer->getId())
             ListeVisites.erase(ListeVisites.begin()+i);
     }
+}
+
+void Acheteur::ajouterProposition(int prop, int idVisite){
+    this->getVisite(idVisite).setPrix(prop);
+    montantProposition=prop;
+}
+
+Visite Acheteur::getVisite(int id){
+    Visite tmp_null;
+    for(int i=0; i<ListeVisites.size();i++){
+        if(ListeVisites[i]->getId()==id)
+            tmp_null= *ListeVisites[i];
+    }
+    return tmp_null;
+}
+
+bool Acheteur::visiteExiste(int identifiant){
+    for(int i=0;i<ListeVisites.size();i++){
+        if(ListeVisites[i]->getId()==identifiant)
+            return true;
+    }
+    return false;
 }

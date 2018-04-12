@@ -19,12 +19,17 @@ using namespace std;
 class Acheteur : public Client{
 private:
     vector<Visite *> ListeVisites;
+    bool propositionAchat;
+    int montantProposition;
+    Visite getVisite(int);
 public:
     Acheteur();
     Acheteur(string, string);
     ~Acheteur();
     void ajout_visite(Visite*);
     void suppression_visite(Visite*);
+    void ajouterProposition(int, int);
+    bool visiteExiste(int);
 };
 
 #endif /* Acheteur_hpp */

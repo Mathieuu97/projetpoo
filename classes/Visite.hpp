@@ -15,15 +15,18 @@
 using namespace std;
 
 class Visite {
-protected:
+private:
     bool proposition_achat;
-    float prix;
+    int prix;
     int idAcheteur;
-public:
     int id_visite;
+public:
+    int getId();
+    void setPrix(int);
     Visite();
     Visite(int _id_visite, bool _proposition_achat, float _prix);
     ~Visite();
+    void ajouterProposition(int);
 };
 
 

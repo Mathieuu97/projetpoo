@@ -41,8 +41,13 @@ int main(int argc, const char * argv[]) {
     
         cin >> commande;
         
+        if(commande!="aide"&&commande!="nouveau"&&commande!="q")
+            cout << endl << "Cette commande n'est pas valide" << endl;
     
         if(commande=="aide"){
+            if(commande=="q"){
+                UnToitPourTous.quitterAgence();
+            }
             cout << endl << "commandes disponibles: "<< endl << endl;
             cout << "Creer un nouveau [client/bien/proposition]:        tapez 'nouveau'"<< endl;
             cout << "Rechercher un bien [appartement/maison/terrain/local] :        tapez 'rechercher'"<< endl;
@@ -52,10 +57,15 @@ int main(int argc, const char * argv[]) {
         if(commande=="nouveau"){
             cout << "Que voulez vous creer ? [client/bien/proposition]" << endl;
             cin >> commande;
+            if(commande=="q"){
+                UnToitPourTous.quitterAgence();
+            }
             if(commande=="client")
                 UnToitPourTous.ajouterClient();
             if(commande=="bien")
                 UnToitPourTous.ajouterBien();
+            if(commande=="proposition")
+                UnToitPourTous.nouvellePropositionAchat();
         }
         
         if(commande=="q"){

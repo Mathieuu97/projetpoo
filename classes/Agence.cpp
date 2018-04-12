@@ -60,9 +60,55 @@ void Agence::ajouterBien(){
 }
 
 void Agence::nouvellePropositionAchat(){
+    string str= "";
+    int identifiant;
+    int derniereVisite;
+    do{
+        cout << "Veuillez saisir votre identifiant client: " << endl;
+        cin >> str;
+        identifiant=stoi(str);
+    }while(!(this->acheteurExiste(identifiant)));
+    
+    do{
+        cout << "Veuillez saisir la reference du bien visite: " << endl;
+        cin >> str;
+        derniereVisite=stoi(str);
+    }while(!(getAcheteur(identifiant).visiteExiste(derniereVisite)));
+    
+    cout << "Veuillez saisir le montant de la proposition: " << endl;
+    cin >> str;
+    int proposition=stoi(str);
+    this->getAcheteur(identifiant).ajouterProposition(proposition,derniereVisite);
+    
+    cout << endl << "Proposition enregistree" << endl << endl;
     
 }
 
 void Agence::quitterAgence(){
     termine=true;
 }
+
+bool Agence::acheteurExiste(int identifiant){
+    for(int i=0;i<ListeAcheteur.size();i++){
+        if(ListeAcheteur[i]->getId()==identifiant)
+            return true;
+    }
+    return false;
+}
+
+Acheteur Agence::getAcheteur(int identifiant){
+    Acheteur tmp_null;
+    for(int i=0;i<ListeAcheteur.size();i++){
+        if(ListeAcheteur[i]->getId()==identifiant)
+            tmp_null= *ListeAcheteur[i];
+    }
+    return tmp_null;
+}
+
+
+
+
+
+
+
+

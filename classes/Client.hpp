@@ -22,6 +22,8 @@ protected:
     Client();
     Client(string, string);
     ~Client();
+public:
+    int getId();
     
 };
 
