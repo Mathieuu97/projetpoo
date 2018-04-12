@@ -22,11 +22,13 @@ private:
     vector<Vendeur *> ListeVendeur;
     vector<Acheteur *> ListeAcheteur;
 public:
+    bool termine;
     Agence();
     ~Agence();
     void ajouterClient();
     void ajouterBien();
     void nouvellePropositionAchat();
+    void quitterAgence();
 };
 
 

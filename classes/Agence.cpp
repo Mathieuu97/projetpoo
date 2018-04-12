@@ -12,6 +12,7 @@ using namespace std;
 
 Agence::Agence(){
     nom="UnToitPourTous";
+    termine=false;
 }
 
 
@@ -34,7 +35,7 @@ void Agence::ajouterClient(){
 		if (client == "vendeur" || client == "v"){
 			Vendeur v(nom,adr);
 			ListeVendeur.push_back(&v);
-			cout << "Le vendeur a bien été ajouté"<<endl;
+			cout << "Le vendeur a bien ete ajoute"<<endl;
 			 /*for(int i=0;i<ListeVendeur.size();i++){
 			        cout << ListeVendeur[i]->getnom()<< endl;
 			    }*/
@@ -42,14 +43,14 @@ void Agence::ajouterClient(){
 		else if(client == "acheteur" || client == "a"){
 			Acheteur a(nom,adr);
 			ListeAcheteur.push_back(&a);
-			cout << "L'acheteur a bien été ajouté"<<endl;
+			cout << "L'acheteur a bien ete ajoute"<<endl;
 		}
 		else if(client == "v&a"){
 				Acheteur a(nom,adr);
 				ListeAcheteur.push_back(&a);
 				Vendeur v(nom,adr);
 				ListeVendeur.push_back(&v);
-				cout << "Le client a bien été ajouté dans les deux listes"<<endl;
+				cout << "Le client a bien ete ajoute dans les deux listes"<<endl;
 			}
 
 }
@@ -60,4 +61,8 @@ void Agence::ajouterBien(){
 
 void Agence::nouvellePropositionAchat(){
     
+}
+
+void Agence::quitterAgence(){
+    termine=true;
 }
