@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
             endingLineNumber = "28"
-            landmarkName = "Bien::Bien(float _prix, string _adr, float _nb_m2)"
+            landmarkName = "Bien::Bien(float _prix, string _adr, string _ville, float _nb_m2)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "classes/Bien.hpp"
-            timestampString = "545215542.223184"
+            timestampString = "545216990.080373"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "class Bien"
             landmarkType = "3">
          </BreakpointContent>

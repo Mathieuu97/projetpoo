@@ -7,6 +7,12 @@
 //
 
 #include <iostream>
+#include <string>
+#include <sstream>
+#include <algorithm>
+#include <iterator>
+#include <vector>
+#include "Agence.hpp"
 #include "Bien.hpp"
 #include "Client.hpp"
 #include "Appartement.hpp"
@@ -15,17 +21,35 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     
-    Bien A;
+    Agence UnToitPourTous;
     
-    cout << "id= " << A.id_bien << endl;
+    cout << "            " << " -------------------------------" << endl;
+    cout << "            " << "|   Bienvenue sur l'interface   |" << endl;
+    cout << "            " << "|  de gestion d'UnToitPourTous  |" << endl;
+    cout << "            " << "|                               |" << endl;
+    cout << "            " << "|   Tapez 'aide'pour afficher   |" << endl;
+    cout << "            " << "|   les commandes disponibles   |" << endl;
+    cout << "            " << " -------------------------------" << endl << endl << endl;
     
-    Bien B;
+    cout << "Veuillez saisir une commande: " << endl;
     
-    cout << "id= " << B.id_bien << endl;
+    string commande="";
     
-    Appartement C;
+    cin >> commande;
     
-    cout << "id= " << C.id_bien << endl;
+    if(commande=="aide"){
+        cout << endl << "commandes disponibles: "<< endl << endl;
+        cout << "Creer un nouveau [client/bien/proposition]:        tapez 'nouveau'"<< endl;
+        cout << "Rechercher un bien [appartement/maison/terrain/local] :        tapez 'rechercher'"<< endl << endl;
+    }
+    
+    if(commande=="nouveau"){
+        cout << "Que voulez vous creer ? [client/bien/proposition]" << endl;
+        if(commande=="client")
+            UnToitPourTous.ajouterClient();
+        if(commande=="bien")
+            UnToitPourTous.ajouterBien();
+    }
     
     return 0;
 }

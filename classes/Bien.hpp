@@ -23,13 +23,14 @@ protected:
     static int next_id_bien;
     float prix;
     string adresse_bien;
+    string ville;
     float nb_m2;
     int idVendeur;
     
 public:
     int id_bien;
         Bien();
-        Bien(float _prix, string _adr, float _nb_m2);
+        Bien(float _prix, string _adr, string _ville, float _nb_m2);
         ~Bien();
 };
 

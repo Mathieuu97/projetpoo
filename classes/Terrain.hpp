@@ -21,7 +21,7 @@ protected:
 
 public:
     Terrain();
-    Terrain(float _prix, string _adr, float _nb_m2, bool _constructible);
+    Terrain(float _prix, string _adr, string ville, float _nb_m2, bool _constructible);
     ~Terrain();
 };
 #endif /* Terrain_hpp */

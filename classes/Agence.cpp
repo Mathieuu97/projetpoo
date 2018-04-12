@@ -11,7 +11,7 @@
 using namespace std;
 
 Agence::Agence(){
-    
+    nom="UnToitPourTous";
 }
 
 
@@ -19,13 +19,14 @@ Agence::~Agence(){
     
 }
 
-void Agence::ajouterClient(Client* nouveauClient){
-    
-}
-void ajouterBien(Bien * nouveauBien){
+void Agence::ajouterClient(){
     
 }
 
-void nouvellePropositionAchat(float nouvelleProposition){
+void Agence::ajouterBien(){
+    
+}
+
+void Agence::nouvellePropositionAchat(){
     
 }
