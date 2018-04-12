@@ -19,7 +19,6 @@ protected:
     int idClient;
     string nom;
     string adresse;
-protected:
     Client();
     Client(int, string, string);
     ~Client();

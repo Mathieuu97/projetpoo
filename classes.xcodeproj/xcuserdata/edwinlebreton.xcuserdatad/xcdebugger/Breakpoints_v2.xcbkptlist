@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "classes/Bien.hpp"
-            timestampString = "545154701.623895"
+            timestampString = "545215542.223184"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "class Bien"
             landmarkType = "3">
          </BreakpointContent>

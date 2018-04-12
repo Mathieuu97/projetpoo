@@ -18,6 +18,7 @@ class Visite {
 protected:
     bool proposition_achat;
     float prix;
+    int idAcheteur;
 public:
     int id_visite;
     Visite();
