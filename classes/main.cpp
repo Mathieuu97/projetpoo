@@ -45,6 +45,7 @@ int main(int argc, const char * argv[]) {
     
     if(commande=="nouveau"){
         cout << "Que voulez vous creer ? [client/bien/proposition]" << endl;
+        cin >> commande;
         if(commande=="client")
             UnToitPourTous.ajouterClient();
         if(commande=="bien")

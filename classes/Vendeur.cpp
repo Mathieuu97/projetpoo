@@ -8,7 +8,7 @@
 
 #include "Vendeur.hpp"
 
-Vendeur::Vendeur(int id, string nom, string adresse): Client(id,nom,adresse){
+Vendeur::Vendeur(string nom, string adresse): Client(nom,adresse){
     
 }
 

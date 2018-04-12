@@ -14,7 +14,7 @@ Acheteur::Acheteur(){
     
 }
 
-Acheteur::Acheteur(int id, string nom, string adresse): Client(id,nom,adresse){
+Acheteur::Acheteur(string nom, string adresse): Client(nom,adresse){
     
 }
 

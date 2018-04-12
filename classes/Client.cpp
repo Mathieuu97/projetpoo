@@ -14,7 +14,7 @@ Client::Client(){
     idClient=nextIdCLient++;
 }
 
-Client::Client(int _id, string _nom, string _adresse){
+Client::Client(string _nom, string _adresse){
     idClient=nextIdCLient++;
     nom=_nom;
     adresse=_adresse;

@@ -19,9 +19,9 @@ using namespace std;
 class Acheteur : public Client{
 private:
     vector<Visite *> ListeVisites;
-protected:
+public:
     Acheteur();
-    Acheteur(int, string, string);
+    Acheteur(string, string);
     ~Acheteur();
     void ajout_visite(Visite*);
     void suppression_visite(Visite*);

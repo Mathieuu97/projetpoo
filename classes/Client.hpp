@@ -20,7 +20,7 @@ protected:
     string nom;
     string adresse;
     Client();
-    Client(int, string, string);
+    Client(string, string);
     ~Client();
     
 };
