@@ -15,7 +15,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
             endingLineNumber = "28"
-            landmarkName = "Bien::Bien(float _prix, string _adr, string _ville, float _nb_m2)"
+            landmarkName = "Bien::Bien(int _prix, string _adr, string _ville, int _nb_m2, string _typeDeBien)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,12 +58,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "classes/Acheteur.cpp"
-            timestampString = "545155351.289536"
+            timestampString = "545234386.648963"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "Acheteur::suppression_visite(Visite* aSupprimer)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "classes/Acheteur.cpp"
+            timestampString = "545236435.871158"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "Acheteur::getVisite(int id)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
