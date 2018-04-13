@@ -17,7 +17,7 @@ Agence::Agence(){
 
 
 Agence::~Agence(){
-    
+
 }
 
 void Agence::ajouterClient(){
@@ -33,23 +33,27 @@ void Agence::ajouterClient(){
 			cout << "vendeur ou acheteur ou v&a ? [v/a/v&a]: "<< endl;
 			cin >> client;
 		if (client == "vendeur" || client == "v"){
-			Vendeur v(nom,adr);
-			ListeVendeur.push_back(&v);
+            ListeVendeur[nom]=new Vendeur(nom,adr);
+			//Vendeur v(nom,adr);
+			//ListeVendeur.push_back(&v);
 			cout << "Le vendeur a bien ete ajoute"<<endl;
 			 /*for(int i=0;i<ListeVendeur.size();i++){
 			        cout << ListeVendeur[i]->getnom()<< endl;
 			    }*/
 		}
 		else if(client == "acheteur" || client == "a"){
-			Acheteur a(nom,adr);
-			ListeAcheteur.push_back(&a);
+            ListeAcheteur[nom]=new Acheteur(nom,adr);
+			//Acheteur a(nom,adr);
+			//ListeAcheteur.push_back(&a);
 			cout << "L'acheteur a bien ete ajoute"<<endl;
 		}
 		else if(client == "v&a"){
-				Acheteur a(nom,adr);
+            ListeAcheteur[nom]=new Acheteur(nom,adr);
+            ListeVendeur[nom]=new Vendeur(nom,adr);
+				/*Acheteur a(nom,adr);
 				ListeAcheteur.push_back(&a);
 				Vendeur v(nom,adr);
-				ListeVendeur.push_back(&v);
+				ListeVendeur.push_back(&v);*/
 				cout << "Le client a bien ete ajoute dans les deux listes"<<endl;
 			}
 
@@ -61,12 +65,12 @@ void Agence::ajouterBien(){
 
 void Agence::nouvellePropositionAchat(){
     string str= "";
-    int identifiant;
+    string identifiant;
     int derniereVisite;
     do{
-        cout << "Veuillez saisir votre identifiant client: " << endl;
+        cout << "Veuillez saisir votre nom: " << endl;
         cin >> str;
-        identifiant=stoi(str);
+        identifiant=str;
     }while(!(this->acheteurExiste(identifiant)));
     
     do{
@@ -85,11 +89,16 @@ void Agence::nouvellePropositionAchat(){
 }
 
 void Agence::rechercheSimple(){
+    map<string, Vendeur*>::iterator i;
+
     cout << "Voici l'ensemble des biens disponibles à l'achat: " << endl << endl;
-    
-    for(int i=0;i<ListeVendeur.size();i++){
-        ListeVendeur[i]->afficherBiens();
+    for(i = ListeVendeur.begin() ; i != ListeVendeur.end() ; ++i){
+        i->second->afficherBiens();
     }
+
+    /*for(int i=0;i<ListeVendeur.size();i++){
+        ListeVendeur[i]->afficherBiens();
+    }*/
 }
 
 void Agence::demandeRechercheAvancee(){
@@ -145,9 +154,14 @@ void Agence::demandeRechercheAvancee(){
 }
 
 void Agence::rechercheAvancee(string _type, int _prix_max, int _surface, string _ville){
-    for(int i=0;i<ListeVendeur.size();i++){
-        ListeVendeur[i]->afficherBiensCriteres(_type, _prix_max, _surface, _ville);
+    map<string, Vendeur*>::iterator i;
+    
+    for(i = ListeVendeur.begin() ; i != ListeVendeur.end() ; ++i){
+        i->second->afficherBiensCriteres(_type, _prix_max, _surface, _ville);
     }
+    /*for(int i=0;i<ListeVendeur.size();i++){
+        ListeVendeur[i]->afficherBiensCriteres(_type, _prix_max, _surface, _ville);
+    }*/
 }
 
 void Agence::quitterAgenceSiDemande(string com){
@@ -155,22 +169,33 @@ void Agence::quitterAgenceSiDemande(string com){
         termine=true;
 }
 
-bool Agence::acheteurExiste(int identifiant){
-    for(int i=0;i<ListeAcheteur.size();i++){
+bool Agence::acheteurExiste(string identifiant){
+    return (ListeAcheteur.find(identifiant)!=ListeAcheteur.end());
+    /*for(int i=0;i<ListeAcheteur.size();i++){
         if(ListeAcheteur[i]->getId()==identifiant)
             return true;
-    }
-    return false;
+     return false;
+    }*/
 }
 
-Acheteur Agence::getAcheteur(int identifiant){
-    Acheteur tmp_null;
+Acheteur Agence::getAcheteur(string identifiant){
+    Acheteur tmp;
+    map<string, Acheteur*>::iterator i;
+    i=ListeAcheteur.find(identifiant);
+    if(i != ListeAcheteur.end())
+        tmp= *i->second;
+    else
+        cout << "Cet acheteur n'existe pas" << endl;
+    return tmp;
+    
+    /*Acheteur tmp_null;
     for(int i=0;i<ListeAcheteur.size();i++){
-        if(ListeAcheteur[i]->getId()==identifiant)
+        if(ListeAcheteur[id]->getId()==identifiant)
             tmp_null= *ListeAcheteur[i];
     }
-    return tmp_null;
+    return tmp_null;*/
 }
+
 
 
 

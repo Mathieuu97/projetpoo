@@ -19,8 +19,8 @@ using namespace std;
 class Agence {
 private:
     string nom;
-    vector<Vendeur *> ListeVendeur;
-    vector<Acheteur *> ListeAcheteur;
+    map<string, Vendeur *> ListeVendeur;
+    map<string, Acheteur *> ListeAcheteur;
 public:
     bool termine;
     Agence();
@@ -32,9 +32,9 @@ public:
     void demandeRechercheAvancee();
     void rechercheAvancee(string, int , int, string);
     void quitterAgenceSiDemande(string);
-    bool acheteurExiste(int);
+    bool acheteurExiste(string);
     
-    Acheteur getAcheteur(int);
+    Acheteur getAcheteur(string);
 };
 
 
