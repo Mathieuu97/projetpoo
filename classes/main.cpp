@@ -23,13 +23,15 @@ int main(int argc, const char * argv[]) {
     
     Agence UnToitPourTous;
     
-    cout << "            " << " -------------------------------" << endl;
-    cout << "            " << "|   Bienvenue sur l'interface   |" << endl;
-    cout << "            " << "|  de gestion d'UnToitPourTous  |" << endl;
-    cout << "            " << "|                               |" << endl;
-    cout << "            " << "|   Tapez 'aide'pour afficher   |" << endl;
-    cout << "            " << "|   les commandes disponibles   |" << endl;
-    cout << "            " << " -------------------------------" << endl << endl << endl;
+    cout << endl << endl << endl << endl << endl << endl << endl << endl;
+    cout << " -------------------------------" << endl;
+    cout << "|   Bienvenue sur l'interface   |" << endl;
+    cout << "|  de gestion d'UnToitPourTous  |" << endl;
+    cout << "|                               |" << endl;
+    cout << "|   Tapez 'aide'pour afficher   |" << endl;
+    cout << "|   les commandes disponibles   |" << endl;
+    cout << " -------------------------------" << endl;
+    cout << endl << endl << endl << endl << endl << endl << endl;
     
     
     do
@@ -45,21 +47,17 @@ int main(int argc, const char * argv[]) {
             cout << endl << "Cette commande n'est pas valide" << endl;
     
         if(commande=="aide"){
-            if(commande=="q"){
-                UnToitPourTous.quitterAgence();
-            }
+            UnToitPourTous.quitterAgenceSiDemande(commande);
             cout << endl << "commandes disponibles: "<< endl << endl;
             cout << "Creer un nouveau [client/bien/proposition]:        tapez 'nouveau'"<< endl;
-            cout << "Rechercher un bien [appartement/maison/terrain/local] :        tapez 'rechercher'"<< endl;
+            cout << "Rechercher un bien [appartement/maison/terrain/local] :        tapez 'recherche'"<< endl;
             cout << "Quitter:        tapez 'q'" << endl << endl;
         }
     
         if(commande=="nouveau"){
             cout << "Que voulez vous creer ? [client/bien/proposition]" << endl;
             cin >> commande;
-            if(commande=="q"){
-                UnToitPourTous.quitterAgence();
-            }
+            UnToitPourTous.quitterAgenceSiDemande(commande);
             if(commande=="client")
                 UnToitPourTous.ajouterClient();
             if(commande=="bien")
@@ -68,9 +66,28 @@ int main(int argc, const char * argv[]) {
                 UnToitPourTous.nouvellePropositionAchat();
         }
         
-        if(commande=="q"){
-            UnToitPourTous.quitterAgence();
+        if(commande=="recherche"){
+            UnToitPourTous.quitterAgenceSiDemande(commande);
+            cout << "Quel type de recherche souhaitez vous effectuer ?" << endl;
+            cout << "1. Recherche simple" << endl;
+            cout << "2. Recherche avancee" << endl << endl;
+            cin >> commande;
+            UnToitPourTous.quitterAgenceSiDemande(commande);
+            switch (stoi(commande))
+            {
+                case 1:
+                    UnToitPourTous.rechercheSimple();
+                    break;
+                case 2:
+                    UnToitPourTous.demandeRechercheAvancee();
+                    break;
+                default:
+                    cout << "Option non disponible" << endl;
+                    break;
+            }
         }
+        
+        UnToitPourTous.quitterAgenceSiDemande(commande);
         
     } while (!UnToitPourTous.termine);
 }

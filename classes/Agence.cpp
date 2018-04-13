@@ -84,8 +84,75 @@ void Agence::nouvellePropositionAchat(){
     
 }
 
-void Agence::quitterAgence(){
-    termine=true;
+void Agence::rechercheSimple(){
+    cout << "Voici l'ensemble des biens disponibles à l'achat: " << endl << endl;
+    
+    for(int i=0;i<ListeVendeur.size();i++){
+        ListeVendeur[i]->afficherBiens();
+    }
+}
+
+void Agence::demandeRechercheAvancee(){
+    
+    string type;
+    int prix_max;
+    int surface;
+    string ville;
+    
+    cout << "Veuillez saisir les informations complementaires a votre recherche: " << endl << endl;
+    
+    string str="";
+    
+    cout << "Quel type de bien recherchez vous ?" << endl;
+    cout << "1. Appartement" << endl;
+    cout << "2. Maison" << endl;
+    cout << "3. Terrain" << endl;
+    cout << "4. Local" << endl;
+    
+    cin >> str;
+    
+    
+    switch (stoi(str))
+    {
+        case 1:
+            type= "appartement";
+            break;
+        case 2:
+            type= "maison";
+            break;
+        case 3:
+            type= "terrain";
+            break;
+        case 4:
+            type= "Local";
+        default:
+            cout << "Option non disponible" << endl;
+    }
+    
+    cout << "Quel est le prix maximum du bien que vous recherchez ?" << endl;
+    cin >> str;
+    prix_max=stoi(str);
+    
+    cout << "Quel est la surface minimum du bien que vous recherchez ?" << endl;
+    cin >> str;
+    surface=stoi(str);
+    
+    cout << "Dans quelle ville se trouve le bien que vous recherchez ?" << endl;
+    cin >> str;
+    ville=str;
+    
+    this->rechercheAvancee(type, prix_max, surface, ville);
+}
+
+void Agence::rechercheAvancee(string _type, int _prix_max, int _surface, string _ville){
+    for(int i=0;i<ListeVendeur.size();i++){
+        ListeVendeur[i]->afficherBiensCriteres(_type, _prix_max, _surface, _ville);
+    }
+}
+
+void Agence::quitterAgenceSiDemande(string com){
+    if(com=="q")
+        termine=true;
 }
 
 bool Agence::acheteurExiste(int identifiant){

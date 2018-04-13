@@ -25,7 +25,7 @@ protected:
 
 public:
     Maison();
-    Maison(float _prix, string _adr, string _ville, float _nb_m2, int _nb_pieces, int _nb_etages, bool _garage, bool _jardin, bool _piscine);
+    Maison(int _prix, string _adr, string _ville, int _nb_m2, string typeDeBien, int _nb_pieces, int _nb_etages, bool _garage, bool _jardin, bool _piscine);
     ~Maison();
 };
 

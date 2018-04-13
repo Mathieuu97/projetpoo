@@ -28,7 +28,10 @@ public:
     void ajouterClient();
     void ajouterBien();
     void nouvellePropositionAchat();
-    void quitterAgence();
+    void rechercheSimple();
+    void demandeRechercheAvancee();
+    void rechercheAvancee(string, int , int, string);
+    void quitterAgenceSiDemande(string);
     bool acheteurExiste(int);
     
     Acheteur getAcheteur(int);

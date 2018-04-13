@@ -26,3 +26,21 @@ void Vendeur::suppression_bien(Bien* aSupprimer){
                 ListeBiens.erase(ListeBiens.begin()+i);
     }
 }
+
+vector<Bien*> Vendeur::getListeBiens(){
+    return ListeBiens;
+}
+
+void Vendeur::afficherBiens(){
+    for(int i=0;i<ListeBiens.size();i++){
+        ListeBiens[i]->afficher();
+    }
+}
+
+void Vendeur::afficherBiensCriteres(string type, int prix, int surface, string ville){
+    for(int i=0;i<ListeBiens.size();i++){
+        if(ListeBiens[i]->getType()==type && ListeBiens[i]->getPrix()==prix
+           && ListeBiens[i]->getSurface()==surface && ListeBiens[i]->getVille()==ville)
+        ListeBiens[i]->afficher();
+    }
+}

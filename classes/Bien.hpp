@@ -21,17 +21,23 @@ class Bien
 {
 protected:
     static int next_id_bien;
-    float prix;
+    int prix;
     string adresse_bien;
     string ville;
-    float nb_m2;
+    int nb_m2;
     int idVendeur;
+    string typeDeBien;
     
 public:
     int id_bien;
-        Bien();
-        Bien(float _prix, string _adr, string _ville, float _nb_m2);
-        ~Bien();
+    Bien();
+    Bien(int _prix, string _adr, string _ville, int _nb_m2, string _typeDeBien);
+    ~Bien();
+    void afficher();
+    string getType();
+    int getPrix();
+    int getSurface();
+    string getVille();
 };
 
 #endif /* Bien_hpp */

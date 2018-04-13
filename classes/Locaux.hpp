@@ -22,7 +22,7 @@ protected:
 
 public:
     Locaux();
-    Locaux(float _prix, string _adr, string ville, float _nb_m2, float _taille_vitrine, bool _piece_stock);
+    Locaux(int _prix, string _adr, string ville, int _nb_m2, string typeDeBien, float _taille_vitrine, bool _piece_stock);
     ~Locaux();
 };
 #endif /* Locaux_hpp */

@@ -24,6 +24,9 @@ public:
     ~Vendeur();
     void ajout_bien(Bien*);
     void suppression_bien(Bien*);
+    vector<Bien*> getListeBiens();
+    void afficherBiens();
+    void afficherBiensCriteres(string, int, int, string);
 };
 
 #endif /* Vendeur_hpp */

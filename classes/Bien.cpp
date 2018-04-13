@@ -25,12 +25,30 @@ Bien::~Bien()
     //dtor
 }
 
-Bien::Bien(float _prix, string _adr, string _ville, float _nb_m2)
+Bien::Bien(int _prix, string _adr, string _ville, int _nb_m2, string _typeDeBien)
 {
     id_bien = ++next_id_bien;
     prix = _prix;
     adresse_bien = _adr;
     ville=_ville;
     nb_m2 = _nb_m2;
+    typeDeBien=_typeDeBien;
 }
 
+void Bien::afficher(){
+    cout << id_bien << " " << prix << "€ " << adresse_bien << " " << ville << " " << nb_m2 << " m2" << endl;
+}
+
+string Bien::getType(){
+    return typeDeBien;
+}
+
+int Bien::getPrix(){
+    return prix;
+}
+int Bien::getSurface(){
+    return nb_m2;
+}
+string Bien::getVille(){
+    return ville;
+}
