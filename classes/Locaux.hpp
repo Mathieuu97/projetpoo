@@ -11,7 +11,7 @@
 
 #include <stdio.h>
 #include <iostream>
-#include "bien.hpp"
+#include "Bien.hpp"
 
 using namespace std;
 

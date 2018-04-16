@@ -24,13 +24,13 @@ int main(int argc, const char * argv[]) {
     Agence UnToitPourTous;
     
     cout << endl << endl << endl << endl << endl << endl << endl << endl;
-    cout << " -------------------------------" << endl;
-    cout << "|   Bienvenue sur l'interface   |" << endl;
-    cout << "|  de gestion d'UnToitPourTous  |" << endl;
-    cout << "|                               |" << endl;
-    cout << "|   Tapez 'aide'pour afficher   |" << endl;
-    cout << "|   les commandes disponibles   |" << endl;
-    cout << " -------------------------------" << endl;
+    cout << "               -------------------------------" << endl;
+    cout << "              |   Bienvenue sur l'interface   |" << endl;
+    cout << "              |  de gestion d'UnToitPourTous  |" << endl;
+    cout << "              |                               |" << endl;
+    cout << "              |   Tapez 'aide'pour afficher   |" << endl;
+    cout << "              |   les commandes disponibles   |" << endl;
+    cout << "               -------------------------------" << endl;
     cout << endl << endl << endl << endl << endl << endl << endl;
     
     

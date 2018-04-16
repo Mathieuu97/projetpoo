@@ -8,6 +8,7 @@
 
 #include "Agence.hpp"
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 Agence::Agence(){
@@ -21,7 +22,7 @@ Agence::~Agence(){
 }
 
 void Agence::ajouterClient(){
-	string nom = "";
+	    string nom = "";
 		string adr = "";
 			cout << "Nom : "<< endl;
 			cin >> nom;
@@ -40,12 +41,35 @@ void Agence::ajouterClient(){
 			 /*for(int i=0;i<ListeVendeur.size();i++){
 			        cout << ListeVendeur[i]->getnom()<< endl;
 			    }*/
+            
+            /*On ajoute les information du Vendeur dans "Vendeur.txt"*/
+            ofstream fichier("Vendeur.txt", ios::out | ios::app);
+            if(fichier)
+            {
+                fichier << nom << " " << adr << " " << endl;
+                fichier.close();
+            }
+            else 
+                cerr << "Impossible d'ouvrir le fichier !" << endl;
+            
+            
 		}
+    
 		else if(client == "acheteur" || client == "a"){
             ListeAcheteur[nom]=new Acheteur(nom,adr);
 			//Acheteur a(nom,adr);
 			//ListeAcheteur.push_back(&a);
 			cout << "L'acheteur a bien ete ajoute"<<endl;
+            
+            /*On ajoute les information de l'Acheteur dans "Acheteur.txt"*/
+            ofstream fichier("Acheteur.txt", ios::out | ios::app);
+            if(fichier)
+            {
+                fichier << "Nom : " << nom << " Adresse : " << adr << endl;
+                fichier.close();
+            }
+            else 
+                cerr << "Impossible d'ouvrir le fichier !" << endl;
 		}
 		else if(client == "v&a"){
             ListeAcheteur[nom]=new Acheteur(nom,adr);
@@ -55,11 +79,95 @@ void Agence::ajouterClient(){
 				Vendeur v(nom,adr);
 				ListeVendeur.push_back(&v);*/
 				cout << "Le client a bien ete ajoute dans les deux listes"<<endl;
+            
+            /*On ajoute les information du client Vendeur & Acheteur dans "Vendeur.txt" & "Acheteur.txt"*/
+            ofstream fichierV("Vendeur.txt", ios::out | ios::app);
+            if(fichierV)
+            {
+                fichierV << nom << " " << adr << endl;
+                //fichierV.put('\n');
+                fichierV.close();
+            }
+            else 
+                cerr << "Impossible d'ouvrir le fichier Vendeur.txt !" << endl;
 			}
-
+            ofstream fichierA("Acheteur.txt", ios::out | ios::app);
+            if(fichierA)
+            {
+                fichierA << nom << " " << adr << endl;
+                fichierA.close();
+                
+            }
+    /*
+            else 
+                cerr << "Impossible d'ouvrir le fichier Acheteur.txt !" << endl;
+			}*/
 }
 
 void Agence::ajouterBien(){
+    string nom="";
+    string adr="";
+    string ville="";
+    string type="";
+    int prix;
+    int nb_m2;
+    int id_vendeur;
+    
+    do{
+        cout << "Veuillez saisir votre nom: " << endl;
+        cin >> nom;
+    }while(!(this->VendeurExiste(nom)));
+    
+    cout << "Veuillez saisir l'adresse du bien:" << endl;
+    cin >> adr;
+    cout << "Adresse enregistrée : " << adr <<endl;
+    
+    cout << "Veuillez saisir la ville où se trouve le bien:" << endl;
+    cin >> ville;
+    cout << "Ville enregistrée : " << ville <<endl;
+    
+    
+    cout << "Quel est le type du bien que vous souhaitez vendre ?" << endl;
+    cout << "1. appartement" << endl;
+    cout << "2. maison" << endl;
+    cout << "3. terrain" << endl;
+    cout << "4. local" << endl;
+    
+    cin >> type;
+    
+    
+    switch (stoi(type))
+    {
+        case 1:
+            type= "appartement";
+            break;
+        case 2:
+            type= "maison";
+            break;
+        case 3:
+            type= "terrain";
+            break;
+        case 4:
+            type= "Local";
+        default:
+            cout << "Option non disponible" << endl;
+    }
+    
+    cout << "Type du bien enregistré : "<<type<<endl;
+    
+    cout<< "A quel prix souhaitez vous vendre ce bien ?"<<endl;
+    cin>>prix;
+    cout << "Prix enregistré : "<< prix << endl;
+    
+    cout << "Quelle est la surface de votre bien (en m2) ?" << endl;
+    cin >> nb_m2;
+    
+    cout << "Surface enregistrée : "<< nb_m2<< endl;
+    
+    Bien bien_enregistre = Bien(prix, adr, ville, nb_m2, type);
+    
+    //getVendeur(nom).ajout_bien(&bien_enregistre);
+    
     
 }
 
@@ -178,6 +286,10 @@ bool Agence::acheteurExiste(string identifiant){
     }*/
 }
 
+bool Agence::VendeurExiste(string identifiant){
+    return (ListeVendeur.find(identifiant)!=ListeVendeur.end());
+}
+
 Acheteur Agence::getAcheteur(string identifiant){
     Acheteur tmp;
     map<string, Acheteur*>::iterator i;
@@ -195,6 +307,20 @@ Acheteur Agence::getAcheteur(string identifiant){
     }
     return tmp_null;*/
 }
+
+Vendeur Agence::getVendeur(string identifiant){
+    Vendeur tmp;
+    map<string, Vendeur*>::iterator i;
+    i=ListeVendeur.find(identifiant);
+    if(i != ListeVendeur.end())
+        tmp= *i->second;
+    else
+        cout << "Ce vendeur n'existe pas" << endl;
+    return tmp;
+    
+}
+
+
 
 
 

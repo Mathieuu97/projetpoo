@@ -33,8 +33,10 @@ public:
     void rechercheAvancee(string, int , int, string);
     void quitterAgenceSiDemande(string);
     bool acheteurExiste(string);
+    bool VendeurExiste(string);
     
     Acheteur getAcheteur(string);
+    Vendeur getVendeur(string);
 };
 
 

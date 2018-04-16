@@ -8,6 +8,10 @@
 
 #include "Vendeur.hpp"
 
+Vendeur::Vendeur(){
+    
+}
+
 Vendeur::Vendeur(string nom, string adresse): Client(nom,adresse){
     
 }

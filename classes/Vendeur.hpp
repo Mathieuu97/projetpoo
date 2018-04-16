@@ -21,6 +21,7 @@ private:
     vector<Bien *> ListeBiens;
 public:
     Vendeur(string, string);
+    Vendeur();
     ~Vendeur();
     void ajout_bien(Bien*);
     void suppression_bien(Bien*);
