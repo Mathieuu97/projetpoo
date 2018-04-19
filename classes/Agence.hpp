@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <vector>
 #include <map>
+#include <list>
 #include "Vendeur.hpp"
 #include "Acheteur.hpp"
 using namespace std;
