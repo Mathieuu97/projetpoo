@@ -46,7 +46,7 @@ void Agence::ajouterClient(){
             ofstream fichier("Vendeur.txt", ios::out | ios::app);
             if(fichier)
             {
-                fichier << nom << " " << adr << " " << endl;
+                fichier << nom << "/" << adr << " " << endl;
                 fichier.close();
             }
             else 
@@ -65,7 +65,7 @@ void Agence::ajouterClient(){
             ofstream fichier("Acheteur.txt", ios::out | ios::app);
             if(fichier)
             {
-                fichier << "Nom : " << nom << " Adresse : " << adr << endl;
+                fichier << nom << "/" << adr << " " << endl;
                 fichier.close();
             }
             else 
@@ -84,8 +84,7 @@ void Agence::ajouterClient(){
             ofstream fichierV("Vendeur.txt", ios::out | ios::app);
             if(fichierV)
             {
-                fichierV << nom << " " << adr << endl;
-                //fichierV.put('\n');
+                fichierV << nom << "/" << adr << " " << endl;
                 fichierV.close();
             }
             else 
@@ -94,14 +93,11 @@ void Agence::ajouterClient(){
             ofstream fichierA("Acheteur.txt", ios::out | ios::app);
             if(fichierA)
             {
-                fichierA << nom << " " << adr << endl;
+                fichierA << nom << "/" << adr << " " << endl;
                 fichierA.close();
                 
             }
-    /*
-            else 
-                cerr << "Impossible d'ouvrir le fichier Acheteur.txt !" << endl;
-			}*/
+
 }
 
 void Agence::ajouterBien(){
@@ -163,10 +159,22 @@ void Agence::ajouterBien(){
     cin >> nb_m2;
     
     cout << "Surface enregistrée : "<< nb_m2<< endl;
+
+    cout << "Bien enregistré" << endl;
     
     Bien bien_enregistre = Bien(prix, adr, ville, nb_m2, type);
     
     //getVendeur(nom).ajout_bien(&bien_enregistre);
+
+    /*On ajoute les information de l'Acheteur dans "Acheteur.txt"*/
+    ofstream fichier("Bien.txt", ios::out | ios::app);
+    if(fichier)
+    {
+        fichier << type << "/" << nom << "/" << adr << "/" << ville << "/" << prix << "/" << nb_m2 << " " << endl;
+        fichier.close();
+    }
+    else 
+        cerr << "Impossible d'ouvrir le fichier !" << endl;
     
     
 }
