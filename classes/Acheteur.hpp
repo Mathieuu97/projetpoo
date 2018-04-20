@@ -18,8 +18,13 @@ using namespace std;
 
 class Acheteur : public Client{
 private:
+
     vector<Visite *> ListeVisites;
+
+    // Bolléen permettant de savoir si la visite a suivie du proposition d'achat ou non
     bool propositionAchat;
+
+    //Prix proposé par le client ayant visité le bien
     int montantProposition;
     Visite getVisite(int);
 public:
@@ -27,7 +32,6 @@ public:
     Acheteur(string, string);
     ~Acheteur();
     void ajout_visite(Visite*);
-    void suppression_visite(Visite*);
     void ajouterProposition(int, int);
     bool visiteExiste(int);
 };

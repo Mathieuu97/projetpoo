@@ -11,38 +11,44 @@
 #include <fstream>
 using namespace std;
 
+
+//CONSTRUCTEUR:
 Agence::Agence(){
     nom="UnToitPourTous";
     termine=false;
 }
 
 
+//DESTRUCTEUR:
 Agence::~Agence(){
 
 }
 
+// Ajout d'un nouveau client vendeur ou acheteur : 
 void Agence::ajouterClient(){
 	    string nom = "";
 		string adr = "";
+        string client = "";
+
+        // On demande à l'utlisateur les différentes informations nécéssaires à son enregistrement (nom, adresse et si il est vendeur ou acheteur ou les deux) via le "cout":
+        // Récupération des informations via le "cin":
 			cout << "Nom : "<< endl;
 			cin >> nom;
 			cout << nom<< endl;
+
 			cout<< "Adresse du client : "<<endl;
 			cin >> adr;
 			cout<< adr <<endl;
-		string client = "";
+		      
 			cout << "vendeur ou acheteur ou v&a ? [v/a/v&a]: "<< endl;
 			cin >> client;
+
+        //Si le client est un vendeur : on l'ajoute à la liste des clients vendeurs : 
 		if (client == "vendeur" || client == "v"){
             ListeVendeur[nom]=new Vendeur(nom,adr);
-			//Vendeur v(nom,adr);
-			//ListeVendeur.push_back(&v);
 			cout << "Le vendeur a bien ete ajoute"<<endl;
-			 /*for(int i=0;i<ListeVendeur.size();i++){
-			        cout << ListeVendeur[i]->getnom()<< endl;
-			    }*/
-            
-            /*On ajoute les information du Vendeur dans "Vendeur.txt"*/
+    
+        //On ajoute les information du Vendeur dans "Vendeur.txt" :
             ofstream fichier("Vendeur.txt", ios::out | ios::app);
             if(fichier)
             {
@@ -50,18 +56,15 @@ void Agence::ajouterClient(){
                 fichier.close();
             }
             else 
-                cerr << "Impossible d'ouvrir le fichier !" << endl;
-            
-            
+                cerr << "Impossible d'ouvrir le fichier !" << endl;            
 		}
-    
+        
+        //Si le client est un acheteur : on l'ajoute à la liste des clients acheteurs :
 		else if(client == "acheteur" || client == "a"){
             ListeAcheteur[nom]=new Acheteur(nom,adr);
-			//Acheteur a(nom,adr);
-			//ListeAcheteur.push_back(&a);
 			cout << "L'acheteur a bien ete ajoute"<<endl;
             
-            /*On ajoute les information de l'Acheteur dans "Acheteur.txt"*/
+        /*On ajoute les information de l'Acheteur dans "Acheteur.txt" : */
             ofstream fichier("Acheteur.txt", ios::out | ios::app);
             if(fichier)
             {
@@ -71,14 +74,12 @@ void Agence::ajouterClient(){
             else 
                 cerr << "Impossible d'ouvrir le fichier !" << endl;
 		}
+
+        //Si le client est à la fois un vendeur et un acheteur, on l'ajoute dans les deux listes : 
 		else if(client == "v&a"){
             ListeAcheteur[nom]=new Acheteur(nom,adr);
             ListeVendeur[nom]=new Vendeur(nom,adr);
-				/*Acheteur a(nom,adr);
-				ListeAcheteur.push_back(&a);
-				Vendeur v(nom,adr);
-				ListeVendeur.push_back(&v);*/
-				cout << "Le client a bien ete ajoute dans les deux listes"<<endl;
+			cout << "Le client a bien ete ajoute dans les deux listes"<<endl;
             
             /*On ajoute les information du client Vendeur & Acheteur dans "Vendeur.txt" & "Acheteur.txt"*/
             ofstream fichierV("Vendeur.txt", ios::out | ios::app);
@@ -89,7 +90,7 @@ void Agence::ajouterClient(){
             }
             else 
                 cerr << "Impossible d'ouvrir le fichier Vendeur.txt !" << endl;
-			}
+		}
             ofstream fichierA("Acheteur.txt", ios::out | ios::app);
             if(fichierA)
             {
@@ -100,6 +101,7 @@ void Agence::ajouterClient(){
 
 }
 
+//Ajout d'un nouveau bien à vendre dans la liste des biens du vendeur concerné : 
 void Agence::ajouterBien(){
     string nom="";
     string adr="";
@@ -108,12 +110,15 @@ void Agence::ajouterBien(){
     int prix;
     int nb_m2;
     int id_vendeur;
-    
+
+    //Demande du nom du vendeur du nouveau bien tant que l'on ne le trouve pas dans la liste des vendeurs (nécéssaire en cas d'erreur de frappe):
     do{
         cout << "Veuillez saisir votre nom: " << endl;
         cin >> nom;
+
     }while(!(this->VendeurExiste(nom)));
     
+    //Demande et récupération des informations nécéssaires à l'enregistrement du bien :
     cout << "Veuillez saisir l'adresse du bien:" << endl;
     cin >> adr;
     cout << "Adresse enregistrée : " << adr <<endl;
@@ -131,7 +136,7 @@ void Agence::ajouterBien(){
     
     cin >> type;
     
-    
+    //SWITCH = Sécurisation du type de bien : il doit faire partie de ceux proposés : 
     switch (stoi(type))
     {
         case 1:
@@ -157,15 +162,11 @@ void Agence::ajouterBien(){
     
     cout << "Quelle est la surface de votre bien (en m2) ?" << endl;
     cin >> nb_m2;
-    
     cout << "Surface enregistrée : "<< nb_m2<< endl;
 
+    //Création d'un nouveau bien avec les caractéristiques données par le client : 
     cout << "Bien enregistré" << endl;
-    
     Bien bien_enregistre = Bien(prix, adr, ville, nb_m2, type);
-    
-
-    //getVendeur(nom).ajout_bien(&bien_enregistre);
 
     /*On ajoute les information de l'Acheteur dans "Acheteur.txt"*/
     ofstream fichier("Bien.txt", ios::out | ios::app);
@@ -178,22 +179,29 @@ void Agence::ajouterBien(){
         cerr << "Impossible d'ouvrir le fichier !" << endl;
 
     
-    //essayer en fesant une recherche dans la liste genre i++ nanana, plutot que getVendeur, au moins pour voir si ca marche
+    //Ajout du nouveau bien créé dans la liste des biens du vendeur concerné :
     getVendeur(nom).ajout_bien(&bien_enregistre);
     
     
 }
 
+
+//Ajout d'une proposition d'achat d'un client acheteur : 
 void Agence::nouvellePropositionAchat(){
+
     string str= "";
     string identifiant;
     int derniereVisite;
+
+    //Demande du nom de l'acheteur tant que l'on ne le trouve pas dans la liste des acheteurs (nécéssaire en cas d'erreur de frappe):
     do{
         cout << "Veuillez saisir votre nom: " << endl;
         cin >> str;
         identifiant=str;
     }while(!(this->acheteurExiste(identifiant)));
     
+
+    //Demande de la référence de la visite du bien tant que l'on ne le trouve pas dans la liste des visites faites par cet acheteur :
     do{
         cout << "Veuillez saisir la reference du bien visite: " << endl;
         cin >> str;
@@ -209,18 +217,21 @@ void Agence::nouvellePropositionAchat(){
     
 }
 
+//Présentation de tout les biens disponibles dans l'agence :
 void Agence::rechercheSimple(){
 
     cout << "Voici l'ensemble des biens disponibles à l'achat: " << endl << endl;
+
+    //Parcours de toutes les listes de biens de tout les vendeurs enregistrés dans l'agence : 
     for(map<string, Vendeur*>::iterator i = ListeVendeur.begin() ; i != ListeVendeur.end() ; ++i){
+
+        //Affichage des caractéristiques de chacuns de ces biens :
         i->second->afficherBiens();
     }
-    
-    /*for(int i=0;i<ListeVendeur.size();i++){
-        ListeVendeur[i]->afficherBiens();
-    }*/
 }
 
+
+//Recherche de biens selon certains critères souhaités par le client :
 void Agence::demandeRechercheAvancee(){
     
     string type;
@@ -228,6 +239,7 @@ void Agence::demandeRechercheAvancee(){
     int surface;
     string ville;
     
+    //Demande et récupération des critères exigés par le client : 
     cout << "Veuillez saisir les informations complementaires a votre recherche: " << endl << endl;
     
     string str="";
@@ -270,59 +282,63 @@ void Agence::demandeRechercheAvancee(){
     cin >> str;
     ville=str;
     
+
     this->rechercheAvancee(type, prix_max, surface, ville);
 }
 
+
+//Fonction permettant de rechercher un bien spécifique selon certaines exigences demandées par le client :
 void Agence::rechercheAvancee(string _type, int _prix_max, int _surface, string _ville){
     map<string, Vendeur*>::iterator i;
     
+    //Parcours de toutes les listes de biens de chaque vendeur de la liste vendeurs : 
     for(i = ListeVendeur.begin() ; i != ListeVendeur.end() ; ++i){
+
+        //Affichage des biens et leurs caractéristiques seulement si ils répondent au critères entrés en paramètres :
         i->second->afficherBiensCriteres(_type, _prix_max, _surface, _ville);
     }
-    /*for(int i=0;i<ListeVendeur.size();i++){
-        ListeVendeur[i]->afficherBiensCriteres(_type, _prix_max, _surface, _ville);
-    }*/
 }
 
+
+//Fonction permettant de quitter l'application : 
 void Agence::quitterAgenceSiDemande(string com){
     if(com=="q")
         termine=true;
 }
 
+//Recherche si un acheteur se trouve dans la liste des acheteurs selon son nom rentré en paramètre de la fonction : Renvoie un booléen 
 bool Agence::acheteurExiste(string identifiant){
     return (ListeAcheteur.find(identifiant)!=ListeAcheteur.end());
-    /*for(int i=0;i<ListeAcheteur.size();i++){
-        if(ListeAcheteur[i]->getId()==identifiant)
-            return true;
-     return false;
-    }*/
 }
 
+//Recherche si un vendeur se trouve dans la liste des vendeurs selon son nom rentré en paramètre de la fonction : Renvoie un booléen 
 bool Agence::VendeurExiste(string identifiant){
     return (ListeVendeur.find(identifiant)!=ListeVendeur.end());
 }
 
-Acheteur Agence::getAcheteur(string identifiant){
+
+//Renvoie d'un objet ACHETEUR selon son identifiant entré en paramètre : 
+Acheteur Agence::Acheteur(string identifiant){
     Acheteur tmp;
     map<string, Acheteur*>::iterator i;
+
+    //Parcours de la liste des acheteurs jusqu'à trouver celui ayant l'id renseigné en paramètre de la fonction :
     i=ListeAcheteur.find(identifiant);
     if(i != ListeAcheteur.end())
         tmp= *i->second;
+
+    //Message en cas d'erreur :
     else
         cout << "Cet acheteur n'existe pas" << endl;
     return tmp;
-    
-    /*Acheteur tmp_null;
-    for(int i=0;i<ListeAcheteur.size();i++){
-        if(ListeAcheteur[id]->getId()==identifiant)
-            tmp_null= *ListeAcheteur[i];
-    }
-    return tmp_null;*/
 }
 
+//Renvoie d'un objet VENDEUR selon son identifiant entré en paramètre :
 Vendeur Agence::getVendeur(string identifiant){
     Vendeur tmp;
     map<string, Vendeur*>::iterator i;
+
+     //Parcours de la liste des vendeurs jusqu'à trouver celui ayant l'id renseigné en paramètre de la fonction :
     i=ListeVendeur.find(identifiant);
     if(i != ListeVendeur.end())
         tmp= *i->second;

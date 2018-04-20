@@ -10,6 +10,8 @@
 #include <iostream>
 #include "Acheteur.hpp"
 
+
+//CONSTRUCTEURS : Initialisation des attributs :
 Acheteur::Acheteur(){
     propositionAchat=false;
     montantProposition=0;
@@ -20,19 +22,15 @@ Acheteur::Acheteur(string nom, string adresse): Client(nom,adresse){
     montantProposition=0;
 }
 
+
+//DESTRUCTEUR :
 Acheteur::~Acheteur(){
     
 }
 
+// Ajout d'une nouvelle visite effectuée par le client dans sa liste de visites :
 void Acheteur::ajout_visite(Visite* nouvelleVisite){
     ListeVisites.push_back(nouvelleVisite);
-}
-
-void Acheteur::suppression_visite(Visite* aSupprimer){
-    for(int i=0; i<ListeVisites.size();i++){
-        if(ListeVisites[i]->getId()==aSupprimer->getId())
-            ListeVisites.erase(ListeVisites.begin()+i);
-    }
 }
 
 void Acheteur::ajouterProposition(int prop, int idVisite){
