@@ -318,7 +318,7 @@ bool Agence::VendeurExiste(string identifiant){
 
 
 //Renvoie d'un objet ACHETEUR selon son identifiant entré en paramètre : 
-Acheteur Agence::Acheteur(string identifiant){
+Acheteur Agence::getAcheteur(string identifiant){
     Acheteur tmp;
     map<string, Acheteur*>::iterator i;
 

@@ -1,1 +1,4 @@
-appartement/Musk/Bdx/Bdx/1500/100 
+/*TypeDeBien/Nom/Adresse/Ville/Prix/Nb_m²*/ appartement/Reviron/46CoursDeL'intendance/Bordeaux/685000/95 
+
+
+
