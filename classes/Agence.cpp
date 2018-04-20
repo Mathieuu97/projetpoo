@@ -164,6 +164,7 @@ void Agence::ajouterBien(){
     
     Bien bien_enregistre = Bien(prix, adr, ville, nb_m2, type);
     
+
     //getVendeur(nom).ajout_bien(&bien_enregistre);
 
     /*On ajoute les information de l'Acheteur dans "Acheteur.txt"*/
@@ -175,6 +176,10 @@ void Agence::ajouterBien(){
     }
     else 
         cerr << "Impossible d'ouvrir le fichier !" << endl;
+
+    
+    //essayer en fesant une recherche dans la liste genre i++ nanana, plutot que getVendeur, au moins pour voir si ca marche
+    getVendeur(nom).ajout_bien(&bien_enregistre);
     
     
 }
@@ -205,13 +210,12 @@ void Agence::nouvellePropositionAchat(){
 }
 
 void Agence::rechercheSimple(){
-    map<string, Vendeur*>::iterator i;
 
     cout << "Voici l'ensemble des biens disponibles à l'achat: " << endl << endl;
-    for(i = ListeVendeur.begin() ; i != ListeVendeur.end() ; ++i){
+    for(map<string, Vendeur*>::iterator i = ListeVendeur.begin() ; i != ListeVendeur.end() ; ++i){
         i->second->afficherBiens();
     }
-
+    
     /*for(int i=0;i<ListeVendeur.size();i++){
         ListeVendeur[i]->afficherBiens();
     }*/
