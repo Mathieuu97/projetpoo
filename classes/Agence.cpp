@@ -113,17 +113,17 @@ void Agence::ajouterBien(){
 
     //Demande du nom du vendeur du nouveau bien tant que l'on ne le trouve pas dans la liste des vendeurs (nécéssaire en cas d'erreur de frappe):
     do{
-        cout << "Veuillez saisir votre nom: " << endl;
+        cout << "Veuillez saisir le nom du propriétaire : " << endl;
         cin >> nom;
 
     }while(!(this->VendeurExiste(nom)));
     
     //Demande et récupération des informations nécéssaires à l'enregistrement du bien :
-    cout << "Veuillez saisir l'adresse du bien:" << endl;
+    cout << "Veuillez saisir l'adresse du bien :" << endl;
     cin >> adr;
     cout << "Adresse enregistrée : " << adr <<endl;
     
-    cout << "Veuillez saisir la ville où se trouve le bien:" << endl;
+    cout << "Veuillez saisir la ville où se trouve le bien :" << endl;
     cin >> ville;
     cout << "Ville enregistrée : " << ville <<endl;
     
@@ -228,6 +228,7 @@ void Agence::rechercheSimple(){
         //Affichage des caractéristiques de chacuns de ces biens :
         i->second->afficherBiens();
     }
+    recherche_bien_fichier();
 }
 
 
@@ -348,6 +349,24 @@ Vendeur Agence::getVendeur(string identifiant){
     
 }
 
+
+void Agence::recherche_bien_fichier() {
+    
+// le constructeur de ifstream permet d'ouvrir un fichier en lecture 
+    ifstream fichier( "Bien.txt" ); 
+  
+    if ( fichier ) // ce test échoue si le fichier n'est pas ouvert 
+    { 
+        string ligne; // variable contenant chaque ligne lue 
+  
+        // cette boucle s'arrête dès qu'une erreur de lecture survient 
+        while ( getline( fichier, ligne ) ) 
+        { 
+            // afficher la ligne à l'écran 
+            cout << ligne << endl; 
+        } 
+    }
+}
 
 
 

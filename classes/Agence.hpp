@@ -35,6 +35,7 @@ public:
     void quitterAgenceSiDemande(string);
     bool acheteurExiste(string);
     bool VendeurExiste(string);
+    void recherche_bien_fichier();
     
     Acheteur getAcheteur(string);
     Vendeur getVendeur(string);

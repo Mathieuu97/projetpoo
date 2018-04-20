@@ -2,6 +2,7 @@
 
 #include "Locaux.hpp"
 
+//CONSTRUCTEURS:
 Locaux::Locaux(){
 
 }
@@ -11,6 +12,7 @@ Locaux::Locaux(int _prix, string _adr, string ville, int _nb_m2, string typeDeBi
    piece_stockage = _piece_stock;
 }
 
+//DESTRUCTEUR:
 Locaux::~Locaux(){
 
 }

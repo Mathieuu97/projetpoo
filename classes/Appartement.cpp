@@ -8,6 +8,7 @@
 
 #include "Appartement.hpp"
 
+//CONSTRUCTEURS:
 Appartement::Appartement(){
     
 }
@@ -21,6 +22,8 @@ Appartement::Appartement(int _prix, string _adr, string ville, int _nb_m2, strin
     nb_total_appart=_nb_total_appart;
 }
 
+
+//DESTRUCTEUR:
 Appartement::~Appartement(){
     
 }

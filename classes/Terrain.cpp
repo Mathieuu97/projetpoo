@@ -4,6 +4,7 @@
 
 #include "Terrain.hpp"
 
+//CONSTRUCTEURS:
 Terrain::Terrain(){
 
 }
@@ -12,6 +13,7 @@ Terrain::Terrain(int _prix, string _adr, string _ville, int _nb_m2, string typeD
     constructible = _constructible;
 }
 
+//DESTRUCTEUR:
 Terrain::~Terrain(){
 
 }

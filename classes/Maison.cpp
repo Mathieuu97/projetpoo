@@ -3,6 +3,7 @@
 
 #include "Maison.hpp"
 
+//CONSTRUCTEURS:
 Maison::Maison(){
 
 }
@@ -15,6 +16,7 @@ Maison::Maison(int _prix, string _adr, string _ville, int _nb_m2, string typeDeB
     piscine=_piscine;
 }
 
+//DESTRUCTEUR:
 Maison::~Maison(){
 
 }
