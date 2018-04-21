@@ -363,8 +363,8 @@ void Agence::recherche_bien_fichier() {
         while ( getline( fichier, ligne ) ) 
         { 
             // afficher la ligne à l'écran 
-            cout << ligne << endl; 
-        } 
+            cout << ligne << "m2" << endl;
+        }
     }
 }
 
